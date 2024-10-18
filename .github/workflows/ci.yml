@@ -41,6 +41,6 @@ jobs:
         SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
         SHEET_ID: ${{ vars.SHEET_ID }}
       run: |
-        echo "${SHEETS_CREDENTIALS} > credentials.json"
+        echo "${SHEETS_CREDENTIALS}" > credentials.json
         python ./import_data_to_sheet.py
 
