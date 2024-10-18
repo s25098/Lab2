@@ -42,7 +42,7 @@ jobs:
         SHEET_ID: ${{ vars.SHEET_ID }}
       run: |
         echo "${SHEETS_CREDENTIALS}" > credentials.json
-        python ./import_data_to_sheet.py
+        python ./import_csv_to_sheet.py
 
     - name: From Sheets to Data
       env:
