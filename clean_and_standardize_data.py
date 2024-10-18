@@ -17,7 +17,7 @@ rows_changed = 0
 def clean_data(path):
     global total_rows, rows_deleted, rows_changed
 
-    df = pd.read_csv('output_data.csv')
+    df = pd.read_csv(path)
     logging.info("Data read from csv file.")
 
     total_rows = len(df)
