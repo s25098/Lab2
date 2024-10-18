@@ -1,6 +1,6 @@
 numpy
-pandas
+pandas~=2.2.3
 faker
 argparse
-gspread
+gspread~=6.1.3
 google-auth
