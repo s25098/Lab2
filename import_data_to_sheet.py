@@ -13,7 +13,7 @@ def import_csv_to_google_sheets(csv_file_path):
     with open('credentials.json') as f:
         account_json = json.load(f)
 
-    creds = Credentials.from_service_account_info(account_json, scope)
+    creds = Credentials.from_service_account_info(account_json, scopes=scope)
     client = gspread.authorize(creds)
 
     worksheet = client.open_by_key(sheet_id)
