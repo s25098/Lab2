@@ -5,6 +5,12 @@ import os
 import json
 import logging
 
+logging.basicConfig(
+    filename='log.txt',
+    filemode='w',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
 
 def export_google_sheets_to_csv(csv_file_path):
     scope = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
@@ -25,7 +31,7 @@ def export_google_sheets_to_csv(csv_file_path):
         writer = csv.writer(file)
         writer.writerows(data)
 
-    print(f"Dane z arkusza zostały zapisane do: {output_csv}")
+    logging.info(f"Data from the sheet has been saved to: {output_csv}.")
 
 
 output_csv = 'output_data.csv'
