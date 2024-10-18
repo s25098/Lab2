@@ -49,7 +49,7 @@ jobs:
         SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
         SHEET_ID: ${{ vars.SHEET_ID }}
       run: | 
-          echo "${SHEETS_CREDENTIALS_JSON}" > credentials.json
+          echo "${SHEETS_CREDENTIALS}" > credentials.json
           python ./import_sheet_to_csv.py
 
     - name: Clean and Standardize Data

@@ -6,7 +6,7 @@ import json
 import logging
 
 
-def import_google_sheets_to_csv(csv_file_path):
+def export_google_sheets_to_csv(csv_file_path):
     scope = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
     sheet_id = os.getenv('SHEET_ID')
 
@@ -29,4 +29,4 @@ def import_google_sheets_to_csv(csv_file_path):
 
 
 output_csv = 'output_data.csv'
-import_google_sheets_to_csv(output_csv)
+export_google_sheets_to_csv(output_csv)
