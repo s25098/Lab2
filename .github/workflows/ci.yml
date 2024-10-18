@@ -1,0 +1,45 @@
+# .github/workflows/ci.yml
+
+name: CI/CD Pipeline for ML Model Training
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  train-model:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name : Checkout My Repository
+      uses: actions/checkout@v2
+
+    - name : Checkout Lab2 repository
+      uses: actions/checkout@v2
+      with:
+        repository: PJATK-ASI-2024/Lab2--Obr-bka-danych
+        token: ${{ secrets.ACCESS_TOKEN }}
+        path: Lab-2_s25098
+
+    - name: Install Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Generate Data
+      run: |
+        python ./Lab-2_s25098/generator_danych.py -s 25098
+
+    - name: Data to Sheets
+      env:
+        SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
+        SHEET_ID: ${{ vars.SHEET_ID }}
+      run: |
+        echo "${SHEETS_CREDENTIALS} > credentials.json"
+        python ./import_data_to_sheet.py
+
