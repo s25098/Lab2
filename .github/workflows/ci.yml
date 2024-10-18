@@ -50,7 +50,7 @@ jobs:
         SHEET_ID: ${{ vars.SHEET_ID }}
       run: | 
           echo "${SHEETS_CREDENTIALS}" > credentials.json
-          python ./import_sheet_to_csv.py
+          python ./export_sheet_to_csv.py
 
     - name: Clean and Standardize Data
       run: |
