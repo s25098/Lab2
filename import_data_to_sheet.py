@@ -4,6 +4,7 @@ import pandas as pd
 import os
 import json
 import logging
+import csv
 
 
 def import_csv_to_google_sheets(csv_file_path):
@@ -21,9 +22,10 @@ def import_csv_to_google_sheets(csv_file_path):
 
     sheet.clear()
 
-    df = pd.read_csv(csv_file_path)
-
-    sheet.update([df.columns.values.tolist()] + df.values.tolist())
+    with open(csv_file_path, 'r') as file:
+        reader = csv.reader(file)
+        csv_data = list(reader)
+        sheet.update(csv_data)
 
     print(f"CSV {csv_file_path} został zaimportowany do Google Sheets")
 
