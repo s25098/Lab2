@@ -19,7 +19,7 @@ jobs:
     - name : Checkout Lab2 repository
       uses: actions/checkout@v2
       with:
-        repository: PJATK-ASI-2024/Lab2--Obr-bka-danych
+        repository: PJATK-ASI-2024/Lab2---Obr-bka-danych
         token: ${{ secrets.ACCESS_TOKEN }}
         path: Lab-2_s25098
 
